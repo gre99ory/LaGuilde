@@ -1,0 +1,52 @@
+<resources>
+    <string name="app_name">La Guilde</string>
+    <string name="channel_id">1976</string>
+    <string name="channel_name">LaGuildeChannel</string>
+    <string name="channel_description">LaGuildeChannelDescription</string>
+
+    <!-- Menu -->
+    <string name="home">Accueil</string>
+    <string name="events">Evènements</string>
+    <string name="results">Résultats</string>
+    <string name="settings">Réglages</string>
+
+    <string name="ok">OK</string>
+    <string name="cancel">Annuler</string>
+    <string name="credits">Crédits</string>
+
+    <!-- Settings -->
+    <string name="current_version">Version actuelle</string>
+    <string name="check_version_now">Vérifier la version</string>
+
+    <string name="magic">Magic</string>
+    <string name="pokemon">Pokémon</string>
+    <string name="misc">Divers</string>
+
+    <string name="tooltips">Info-bulles</string>
+    <string name="check_version">Vérifier la version au démarrage</string>
+
+    <string name="title_new_version">Nouvelle version disponible</string>
+    <string name="text_new_version">Une nouvelle version de l\'application est disponible</string>
+
+    <string name="download">Télécharger</string>
+
+
+    <!-- Evenements -->
+    <string name="click_to_register">Cliquer pour s\'inscrire</string>
+
+
+
+    <string name="tab_text_1">Standard</string>
+    <string name="tab_text_2">Draft</string>
+    <string name="tab_text_3">Modern</string>
+    <string name="tab_text_4">Legacy</string>
+    <string name="tab_text_5">Duel Commander</string>
+
+
+    <string name="app_descrip">
+        Tous les évènements de La Guilde dans votre poche !\n
+        Consultez la liste des prochains évènements et les résultats des tournois passés.
+    </string>
+    <string name="app_credits">Application développée par</string>
+
+</resources>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="20dp"
+    android:background="@drawable/bg_month"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.ggpi.laguilde.activities.SettingsActivity"
+    tools:showIn="@layout/settings_activity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="20dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvVersion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/current_version"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+        <Button
+            android:id="@+id/btnVersion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/check_version_now" />
+
+        <Switch
+            android:id="@+id/swMagic"
+            android:theme="@style/greenSwitch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:showText="true"
+            android:text="@string/magic"
+            android:textOff="@android:string/no"
+            android:textOn="@android:string/yes" />
+
+        <Switch
+            android:id="@+id/swPokemon"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="@string/pokemon"
+            android:theme="@style/greenSwitch" />
+
+        <Switch
+            android:id="@+id/swMisc"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="@string/misc"
+            android:theme="@style/greenSwitch" />
+
+        <Switch
+            android:id="@+id/swTooltips"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="@string/tooltips"
+            android:theme="@style/greenSwitch" />
+
+        <Switch
+            android:id="@+id/swCheckVersion"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="@string/check_version"
+            android:theme="@style/greenSwitch" />
+
+        <Button
+            android:id="@+id/btnOk"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/ok" />
+
+        <TextView
+            android:id="@+id/tvUUID"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/btnAbout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="showAbout"
+            android:text="@string/credits" />
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

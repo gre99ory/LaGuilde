@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- https://www.materialpalette.com/ -->
+    <color name="darkPrimary">#212121</color>
+    <color name="lightPrimary">#F5F5F5</color>
+
+    <color name="accent">#9E9E9E</color>
+
+    <color name="primary">#606464</color>
+
+    <color name="darkText">#212121</color>
+    <color name="lightText">#FDFDFD</color>
+
+    <!--
+    <color name="primaryDark">#008577</color>
+    <color name="primary">#444444</color>
+    <color name="accent">#D5CDCD</color>
+    <color name="lightGrey">#F0F0F0</color>
+    <color name="accentOld">#D81B60</color>
+    -->
+
+    <color name="monthBorder">@color/lightPrimary</color>
+    <color name="monthBackground">@color/darkPrimary</color>
+    <color name="monthText">@color/lightText</color>
+
+    <color name="listBorder">@color/darkPrimary</color>
+    <color name="listBackground">@color/lightPrimary</color>
+    <color name="listText">@color/darkText</color>
+
+    <color name="switchGreen">#0F910F</color>
+    <color name="switchBlack">#000</color>
+</resources>

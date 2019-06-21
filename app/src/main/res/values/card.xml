@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="cardActivities">Boutique\nJeux de Société\nEvènement\nTournois\nInitiations</string>
+    <string name="cardAddress">Witry-lès-Reims\n3A rue de la Neuville</string>
+    <string name="cardPhone">03.26.40.65.11</string>
+    <string name="cardContact">contact@laguilde-jeux.fr</string>
+    <string name="cardWebsite">http://laguilde-jeux.fr</string>
+</resources>
