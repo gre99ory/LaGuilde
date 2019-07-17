@@ -21,14 +21,20 @@ public class GGConstants {
         // private static final String ROOT_URL = "http://192.168.101.1/HeroApi/v1/Api.php?apicall=";
         private static final String ROOT_URL = "http://laguilde-jeux.fr/ggPiApi/api/api.php?apicall=";
 
+        public static final String MARKET_URL = "market://details?id=com.ggpi.laguilde";
+
+        /*
         public static final String URL_CREATE_HERO = ROOT_URL + "createhero";
         public static final String URL_READ_HEROES = ROOT_URL + "getheroes";
         public static final String URL_UPDATE_HERO = ROOT_URL + "updatehero";
         public static final String URL_DELETE_HERO = ROOT_URL + "deletehero&id=";
+        */
 
         public static final String URL_READ_VERSION = ROOT_URL + "version";
         public static final String URL_ADD_REG = ROOT_URL + "addreg";
         public static final String URL_DEL_REG = ROOT_URL + "delreg";
+
+        public static final String URL_GET_EVENTS = ROOT_URL + "getevents";
 
 
     }

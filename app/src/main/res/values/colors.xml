@@ -12,6 +12,8 @@
     <color name="darkText">#212121</color>
     <color name="lightText">#FDFDFD</color>
 
+    <color name="myRed">#F00</color>
+
     <!--
     <color name="primaryDark">#008577</color>
     <color name="primary">#444444</color>

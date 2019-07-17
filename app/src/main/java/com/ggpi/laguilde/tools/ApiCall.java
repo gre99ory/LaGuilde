@@ -50,6 +50,7 @@ public class ApiCall extends AsyncTask<Void, Void, String> {
     protected void onPreExecute() {
         super.onPreExecute();
         AndyUtils.showSimpleProgressDialog(context);
+        AndyUtils.doSleep(1000);
     }
 
 

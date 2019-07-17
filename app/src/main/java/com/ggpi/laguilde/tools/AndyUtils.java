@@ -10,6 +10,8 @@ import android.os.Looper;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.ggpi.laguilde.R;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -64,7 +66,7 @@ public class AndyUtils {
     }
 
     public static void showSimpleProgressDialog(Context context) {
-        showSimpleProgressDialog(context, null, "Loading...", false);
+        showSimpleProgressDialog(context, null, context.getString(R.string.loading), false);
     }
 
     public static void removeSimpleProgressDialog() {

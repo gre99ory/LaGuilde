@@ -1,12 +1,17 @@
 package com.ggpi.laguilde.activities;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.example.ggpi.laguilde.R;
+import com.ggpi.laguilde.models.GGPreferences;
+import com.tooltip.Tooltip;
 
 public abstract class GuildeMenuBaseActivity extends AppCompatActivity {
 
@@ -21,25 +26,54 @@ public abstract class GuildeMenuBaseActivity extends AppCompatActivity {
     Menu Setup
      */
     public boolean onCreateOptionsMenu(Menu menu) {
+        // MenuItem mItem = null;
+        // String mText = "Default";
+
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.home_menu, menu);
         switch ( this.getClass().getSimpleName() ) {
             case "HomeActivity" :
                 menu.findItem(R.id.action_home).setVisible(false);
+           //     mItem = menu.findItem(R.id.action_events);
+             //   mText = "Evènements";
                 break;
             case "EventsActivity" :
                 menu.findItem(R.id.action_events).setVisible(false);
+               // mItem = menu.findItem(R.id.action_winners);
+             //   mText = "Résultats";
                 break;
             case "ResultsActivity" :
                 menu.findItem(R.id.action_winners).setVisible(false);
+             //   mItem = menu.findItem(R.id.action_settings);
+             //   mText = "Préférences";
                 break;
             case "SettingsActivity" :
                 menu.findItem(R.id.action_settings).setVisible(false);
                 break;
 
         }
+
+        /*
+        if ( false && GGPreferences.showTooltips() && mItem != null ) {
+            this.showToolTip(mItem,mText,Gravity.BOTTOM);
+        }
+        */
+
         return true;
     }
+
+    /*
+    public void showToolTip(MenuItem v, String text, int gravity) {
+        // v.setActionView(R.layout.events_lv_item);
+        Tooltip tip = new Tooltip.Builder(v)
+                .setText(text)
+                .setTextColor(Color.WHITE)
+                .setGravity(gravity)
+                .setCornerRadius(8f)
+                .setDismissOnClick(true)
+                .show();
+    }
+    */
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

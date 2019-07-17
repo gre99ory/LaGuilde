@@ -19,9 +19,9 @@
         <TextView
             android:id="@+id/tvVersion"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:text="@string/current_version"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:textAppearance="?android:attr/textAppearanceMedium" />
         <Button
             android:id="@+id/btnVersion"
             android:layout_width="match_parent"
@@ -32,8 +32,7 @@
             android:id="@+id/swMagic"
             android:theme="@style/greenSwitch"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:showText="true"
+            android:layout_height="48dp"
             android:text="@string/magic"
             android:textOff="@android:string/no"
             android:textOn="@android:string/yes" />
@@ -81,7 +80,6 @@
             android:id="@+id/btnAbout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="showAbout"
             android:text="@string/credits" />
 
     </LinearLayout>

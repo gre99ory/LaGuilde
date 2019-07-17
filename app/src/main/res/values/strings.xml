@@ -10,8 +10,19 @@
     <string name="results">Résultats</string>
     <string name="settings">Réglages</string>
 
+    <!-- Navigation -->
+    <string name="back">Retour</string>
+    <string name="next">Suite</string>
+    <string name="done">Terminé</string>
+
+
+    <!-- Erreurs -->
+    <string name="err_no_data">Aucune donnée trouvée !</string>
+
+    <!-- Divers -->
     <string name="ok">OK</string>
     <string name="cancel">Annuler</string>
+    <string name="loading">Chargement...</string>
     <string name="credits">Crédits</string>
 
     <!-- Settings -->
@@ -21,6 +32,7 @@
     <string name="magic">Magic</string>
     <string name="pokemon">Pokémon</string>
     <string name="misc">Divers</string>
+    <string name="all">Tout</string>
 
     <string name="tooltips">Info-bulles</string>
     <string name="check_version">Vérifier la version au démarrage</string>
@@ -34,8 +46,6 @@
     <!-- Evenements -->
     <string name="click_to_register">Cliquer pour s\'inscrire</string>
 
-
-
     <string name="tab_text_1">Standard</string>
     <string name="tab_text_2">Draft</string>
     <string name="tab_text_3">Modern</string>
@@ -48,5 +58,6 @@
         Consultez la liste des prochains évènements et les résultats des tournois passés.
     </string>
     <string name="app_credits">Application développée par</string>
+    <string name="text_no_new_version">Vous possédez déjà la dernière version de La Guilde</string>
 
 </resources>

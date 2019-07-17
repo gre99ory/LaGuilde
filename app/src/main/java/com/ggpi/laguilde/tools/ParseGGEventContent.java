@@ -13,51 +13,11 @@ import java.util.HashMap;
 
 public class ParseGGEventContent {
 
-    private final String KEY_SUCCESS = "status";
-    private final String KEY_MSG = "message";
-    private Activity activity;
-
-    ArrayList<HashMap<String, String>> arraylist;
-
-    public ParseGGEventContent(Activity activity) {
-        this.activity = activity;
-    }
-
-    /*
-    public boolean isSuccess(String response) {
-
-        try {
-            JSONObject jsonObject = new JSONObject(response);
-            if (jsonObject.optString(KEY_SUCCESS).equals("true")) {
-                return true;
-            } else {
-
-                return false;
-            }
-
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        return false;
-    }
-    */
-
-    public String getErrorCode(String response) {
-
-        try {
-            JSONObject jsonObject = new JSONObject(response);
-            return jsonObject.getString(KEY_MSG);
-
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        return "No data";
-    }
-
-    public ArrayList<GGEventModel> getEventList(String response) {
+    public static ArrayList<GGEventModel> getEventList(String response) {
         ArrayList<GGEventModel> ggEvents = new ArrayList<>();
         try {
-            JSONArray dataArray = new JSONArray(response);
+            JSONObject dataObject = new JSONObject( response );
+            JSONArray dataArray = dataObject.getJSONArray( "events"); //new JSONArray(response);
 
             for (int i = 0; i < dataArray.length(); i++) {
                 GGEventModel ggEvent = new GGEventModel();

@@ -2,19 +2,17 @@ package com.ggpi.laguilde.activities;
 
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.widget.ListView;
 
+import com.example.ggpi.laguilde.R;
 import com.ggpi.laguilde.adapters.GGEventAdapter;
 import com.ggpi.laguilde.models.GGEventModel;
-import com.ggpi.laguilde.tools.ParseGGEventContent;
-import com.example.ggpi.laguilde.R;
 
 import java.util.Comparator;
 
 
 public class EventsActivity extends BaseParseActivity {
 
-    //todo: ne pas afficher les events termines -sauf si qq chose debug ??
+    //todo: ne pas afficher les events termines =WINNER= -sauf si qq chose debug ??
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,24 +22,21 @@ public class EventsActivity extends BaseParseActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        parseContent = new ParseGGEventContent(this);
-        listView = (ListView) findViewById(R.id.lv);
-
         ggEventSorter = new Comparator<GGEventModel>() {
             @Override
             public int compare(GGEventModel ggEventA, GGEventModel ggEventB) {
                 return ggEventA.getStart().compareToIgnoreCase(ggEventB.getStart());
             }};
 
-        ggEventAdapter = new GGEventAdapter(this.getBaseContext()); //, ggEvents);
+        ggEventFilter = new Comparator<GGEventModel>() {
+            @Override
+            public int compare(GGEventModel ggEventA, GGEventModel unused) {
+                if (ggEventA.getWinnerName().length() <= 0 )
+                    return 1;
+                return 0;
+            }
+        };
+
+        ggEventAdapter = new GGEventAdapter(this.getBaseContext());
     }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-        doParse("next.json");
-    }
-
-
 }

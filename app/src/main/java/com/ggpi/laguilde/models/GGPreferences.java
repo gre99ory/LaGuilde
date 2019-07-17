@@ -19,12 +19,15 @@ public class GGPreferences {
     private boolean showTooltips = true;
     private boolean checkVersion = true;
 
+    private boolean onBoardingDone = false;
+
     private static final String PREF_UNIQUE_ID = "PREFS_LAGUILDE";
     private static final String PREF_CHECK_VERSION = "CHECK_VERSION";
     private static final String PREF_TOOLTIPS = "SHOW_TOOLTIPS";
     private static final String PREF_MAGIC = "SHOW_MAGIC";
     private static final String PREF_POKEMON = "SHOW_POKEMON";
     private static final String PREF_MISC = "SHOW_MISC";
+    private static final String PREF_ONBOARDING = "ONBOARDING_DONE";
 
     private static final String IS_REGISTERED = "IS_REGISTERED_";
 
@@ -52,9 +55,6 @@ public class GGPreferences {
     }
 
 
-    public static String getUniqueID() {
-        return getInstance().uniqueID;
-    }
 
     public static void save() {
         getInstance().doSave();
@@ -70,6 +70,8 @@ public class GGPreferences {
         editor.putBoolean(PREF_POKEMON,showPokemon);
 
         editor.putBoolean(PREF_MISC,showMisc);
+
+        editor.putBoolean(PREF_ONBOARDING,onBoardingDone);
 
         /*
         editor.putBoolean("swMagic",swMagic.isChecked());
@@ -90,6 +92,8 @@ public class GGPreferences {
 
         showTooltips = prefs.getBoolean(PREF_TOOLTIPS,true);
         checkVersion = prefs.getBoolean(PREF_CHECK_VERSION,true);
+
+        onBoardingDone = prefs.getBoolean(PREF_ONBOARDING,false);
     }
 
     static public boolean isRegistered( String eventId ) {
@@ -104,7 +108,9 @@ public class GGPreferences {
         editor.commit();
     }
 
-
+    static public String getUniqueID() {
+        return getInstance().uniqueID;
+    }
 
     static public boolean showMagic() {
         return getInstance().showMagic;
@@ -141,5 +147,6 @@ public class GGPreferences {
         getInstance().checkVersion = b;
     }
 
-
+    static public boolean onBoardingDone() { return getInstance().onBoardingDone; }
+    static public void setOnBoardingDone(boolean b) { getInstance().onBoardingDone = b; }
 }

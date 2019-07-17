@@ -1,6 +1,8 @@
 package com.ggpi.laguilde.adapters;
 
 import android.content.Context;
+import android.support.annotation.NonNull;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,62 +12,67 @@ import com.ggpi.laguilde.models.GGEventModel;
 import com.example.ggpi.laguilde.R;
 import com.ggpi.laguilde.tools.AndyUtils;
 
-public class GGResultAdapter extends GGEventBaseAdapter {
+public class GGResultAdapter extends GGEventBaseAdapter<GGResultAdapter.ResultViewHolder> {
 
     public GGResultAdapter(Context context) {
         this.context = context;
     }
 
+    @NonNull
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        ViewHolder holder;
+    public ResultViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
 
+        Context ctx = viewGroup.getContext();
+
+        LayoutInflater inflater = LayoutInflater.from(ctx);
+
+        View view = inflater.inflate(R.layout.results_lv_item, viewGroup, false);
+
+        return new ResultViewHolder(view);
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull ResultViewHolder resultViewHolder, int position) {
         GGEventModel ggEvent = ggEvents.get(position);
-        int layout;
 
-        layout = R.layout.results_lv_item;
-
-        if (convertView == null) {
-            holder = new ViewHolder();
-
-            LayoutInflater inflater = (LayoutInflater) context
-                    .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-
-            convertView = inflater.inflate(layout, null, true);
-
-            holder.tvDate = (TextView) convertView.findViewById(R.id.date);
-            holder.tvFormat = (TextView) convertView.findViewById(R.id.format);
-            holder.tvWinner = (TextView) convertView.findViewById(R.id.winner);
-
-            convertView.setTag(holder);
-        }else {
-            // the getTag returns the viewHolder object set as a tag to the view
-            holder = (ViewHolder)convertView.getTag();
+        /* Display/Hide Format if needed */
+        if ( position > 0 && ggEvent.getFormatName().compareTo(ggEvents.get(position-1).getFormatName()) == 0 ) {
+            resultViewHolder.tvFormat.setVisibility(View.GONE);
         }
-
-
-        /* Display Format if needed */
-        if ( position == 0 ||
-                ggEvent.getFormatName().compareToIgnoreCase(ggEvents.get(position-1).getFormatName()) > 0 ) {
-            holder.tvFormat.setText(ggEvent.getFormatName());
-        }
-        else {
-            holder.tvFormat.setVisibility(View.GONE);
-        }
-
-
-        holder.tvDate.setText(AndyUtils.capitalize(ggEvent.getDateText()));
-
-        holder.tvWinner.setText(ggEvent.getWinnerName());
-
-        return convertView;
+        resultViewHolder.display(ggEvent);
     }
 
 
-    private class ViewHolder {
+    class ResultViewHolder extends RecyclerView.ViewHolder {
         protected TextView tvDate;
         protected TextView tvFormat;
         protected TextView tvWinner;
+
+        public ResultViewHolder(@NonNull View itemView) {
+            super(itemView);
+
+            tvDate = (TextView) itemView.findViewById(R.id.date);
+            tvFormat = (TextView) itemView.findViewById(R.id.format);
+            tvWinner = (TextView) itemView.findViewById(R.id.winner);
+        }
+
+
+        void display(GGEventModel ggEvent) {
+            /* Display Format if needed - Rupture */
+            /*
+            if (position == 0 ||
+                    ggEvent.getFormatName().compareToIgnoreCase(ggEvents.get(position - 1).getFormatName()) > 0) {
+
+            } else {
+                holder.tvFormat.setVisibility(View.GONE);
+            }
+            */
+
+            tvFormat.setText(ggEvent.getFormatName());
+
+            tvDate.setText(AndyUtils.capitalize(ggEvent.getDateText()));
+            tvWinner.setText(ggEvent.getWinnerName());
+        }
     }
 
 }

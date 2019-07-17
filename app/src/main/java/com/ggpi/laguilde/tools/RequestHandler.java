@@ -68,10 +68,12 @@ public class RequestHandler {
                     sb.append(response);
                 }
             }
+            conn.disconnect();
 
         } catch (Exception e) {
             e.printStackTrace();
         }
+
         return sb.toString();
     }
 
@@ -86,6 +88,7 @@ public class RequestHandler {
             while ((s = bufferedReader.readLine()) != null) {
                 sb.append(s + "\n");
             }
+            con.disconnect();
         } catch (Exception e) {
         }
         return sb.toString();

@@ -2,6 +2,7 @@ package com.ggpi.laguilde.adapters;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,7 +17,7 @@ import com.ggpi.laguilde.tools.AndyUtils;
 
 import java.util.ArrayList;
 
-public abstract class GGEventBaseAdapter extends BaseAdapter {
+public abstract class GGEventBaseAdapter<T extends RecyclerView.ViewHolder> extends RecyclerView.Adapter<T> {
 
     protected Context context;
     protected ArrayList<GGEventModel> ggEvents;
@@ -37,24 +38,15 @@ public abstract class GGEventBaseAdapter extends BaseAdapter {
     public void setEventList(ArrayList<GGEventModel> eventList ) { this.ggEvents = eventList; }
 
     @Override
-    public int getViewTypeCount() {
-        return getCount();
-    }
-
-    @Override
     public int getItemViewType(int position) {
         return position;
     }
 
     @Override
-    public int getCount() {
+    public int getItemCount() {
         return ggEvents.size();
     }
 
-    @Override
-    public Object getItem(int position) {
-        return ggEvents.get(position);
-    }
 
     @Override
     public long getItemId(int position) {
