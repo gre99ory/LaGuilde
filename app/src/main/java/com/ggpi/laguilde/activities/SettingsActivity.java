@@ -23,6 +23,8 @@ public class SettingsActivity extends GuildeMenuBaseActivity  implements View.On
     private Switch swTooltips;
     private Switch swCheckVersion;
 
+    private Switch swOnBoardingDone;
+
     private int clicks = 0;
 
     @Override
@@ -86,12 +88,15 @@ public class SettingsActivity extends GuildeMenuBaseActivity  implements View.On
         swTooltips = findViewById(R.id.swTooltips);
         swCheckVersion = findViewById(R.id.swCheckVersion);
 
+        swOnBoardingDone = findViewById(R.id.swOnBoardingDone);
+
         // swMagic.setVisibility(View.GONE);
         // swPokemon.setVisibility(View.GONE);
         // swMisc.setVisibility( View.GONE );
         swTooltips.setVisibility(View.GONE);
         // swCheckVersion.setVisibility(View.GONE);
         // btnVersion.setVisibility(View.GONE);
+        // swOnBoardingDone.setVisibility(View.GONE);
     }
 
 
@@ -113,6 +118,8 @@ public class SettingsActivity extends GuildeMenuBaseActivity  implements View.On
         GGPreferences.setShowTooltips( swTooltips.isChecked() );
         GGPreferences.setCheckVersion(swCheckVersion.isChecked());
 
+        GGPreferences.setOnBoardingDone(swOnBoardingDone.isChecked());
+
         GGPreferences.save();
     }
 
@@ -126,6 +133,8 @@ public class SettingsActivity extends GuildeMenuBaseActivity  implements View.On
 
         swTooltips.setChecked( GGPreferences.showTooltips() );
         swCheckVersion.setChecked( GGPreferences.checkVersion() );
+
+        swOnBoardingDone.setChecked( GGPreferences.onBoardingDone() );
     }
 
     @Override

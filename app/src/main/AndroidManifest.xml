@@ -29,6 +29,9 @@
             android:label="@string/home"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
+            android:name="com.ggpi.laguilde.activities.IntroActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name="com.ggpi.laguilde.activities.EventsActivity"
             android:label="@string/events"
             android:parentActivityName="com.ggpi.laguilde.activities.HomeActivity"

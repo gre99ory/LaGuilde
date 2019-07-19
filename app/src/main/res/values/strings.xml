@@ -35,6 +35,7 @@
     <string name="all">Tout</string>
 
     <string name="tooltips">Info-bulles</string>
+    <string name="onboarding">Passer l\'introduction</string>
     <string name="check_version">Vérifier la version au démarrage</string>
 
     <string name="title_new_version">Nouvelle version disponible</string>
@@ -53,11 +54,35 @@
     <string name="tab_text_5">Duel Commander</string>
 
 
+    <!-- A propos -->
     <string name="app_descrip">
         Tous les évènements de La Guilde dans votre poche !\n
         Consultez la liste des prochains évènements et les résultats des tournois passés.
     </string>
     <string name="app_credits">Application développée par</string>
     <string name="text_no_new_version">Vous possédez déjà la dernière version de La Guilde</string>
+
+    <!-- OnBoarding -->
+    <string name="intro0">
+        Bienvenue dans l\'application de La Guilde !\n\n
+        Cette rapide introduction va vous présenter les fonctionnalités disponibles
+    </string>
+    <string name="intro20">
+        La page d\'accueil vous permet de retrouver à tout moment nos coordonnées
+    </string>
+    <string name="intro1">
+        Sur la page des évènements, vous retrouvez l\'ensemble des activités qui vous sont proposées
+    </string>
+    <string name="intro2">
+        Cliquez sur le bouton à gauche pour indiquer votre désir de participer\n
+        Vous recevrez une notification 1 heure avant le début de l\'évènement
+    </string>
+    <string name="intro3">
+        La page résultat vous permet de consulter les résultats des tournois, par format
+    </string>
+    <string name="intro4">
+        Enfin, vous pouvez ajuster divers réglages, notamment le filtrage de certains types
+        d\'évènements en fonction de vos centres d\'intérêt
+    </string>
 
 </resources>

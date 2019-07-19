@@ -14,14 +14,17 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="20dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="20dp"
+        tools:layout_editor_absoluteY="20dp">
 
         <TextView
             android:id="@+id/tvVersion"
             android:layout_width="match_parent"
-            android:layout_height="48dp"
+            android:layout_height="32dp"
             android:text="@string/current_version"
             android:textAppearance="?android:attr/textAppearanceMedium" />
+
         <Button
             android:id="@+id/btnVersion"
             android:layout_width="match_parent"
@@ -30,12 +33,12 @@
 
         <Switch
             android:id="@+id/swMagic"
-            android:theme="@style/greenSwitch"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:text="@string/magic"
             android:textOff="@android:string/no"
-            android:textOn="@android:string/yes" />
+            android:textOn="@android:string/yes"
+            android:theme="@style/greenSwitch" />
 
         <Switch
             android:id="@+id/swPokemon"
@@ -63,6 +66,13 @@
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:text="@string/check_version"
+            android:theme="@style/greenSwitch" />
+
+        <Switch
+            android:id="@+id/swOnBoardingDone"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="@string/onboarding"
             android:theme="@style/greenSwitch" />
 
         <Button

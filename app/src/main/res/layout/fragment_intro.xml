@@ -8,32 +8,39 @@
     android:padding="16dp"
     android:background="@color/darkPrimary">
 
+
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="250dp"
-        android:layout_height="250dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="50dp"
-        android:src="@drawable/capture2" />
+        android:id="@+id/imageViewTop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|center"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:src="@drawable/capture0a" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="T.I.T.R.E.3"
-        android:textSize="26sp"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/intro0"
+        android:textSize="16sp"
         android:gravity="center"
-        android:layout_marginTop="40dp"
-        android:textColor="@color/lightText"/>
+        android:textColor="@color/lightPrimary"/>
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="D.E.S.C.R.I.P.T.I.O.N."
-        android:textSize="18sp"
-        android:gravity="center"
-        android:textColor="@color/lightText"/>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="300dp"
+        android:layout_height="320dp"
+        android:layout_gravity="top|center"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:src="@drawable/capture0" />
 
     <LinearLayout
         android:gravity="bottom"
@@ -48,7 +55,19 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/back"
-            android:textSize="20sp"
+            android:textSize="16sp"
+            android:textColor="@color/lightPrimary"
+            android:clickable="true"
+            android:focusable="true"/>
+
+        <TextView
+            android:id="@+id/slideNext"
+            android:gravity="bottom|end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/next"
+            android:textSize="16sp"
             android:textColor="@color/lightPrimary"
             android:clickable="true"
             android:focusable="true"/>
@@ -60,9 +79,10 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/done"
-            android:textSize="20sp"
+            android:textSize="16sp"
             android:textColor="@color/lightPrimary"
+            android:clickable="true"
             android:focusable="true"/>
-        android:clickable="true"
+
     </LinearLayout>
 </LinearLayout>
