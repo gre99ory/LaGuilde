@@ -31,7 +31,7 @@ public class SplashActivity extends AppCompatActivity {
         SplashActivity.context = getApplicationContext();
         setTheme(R.style.AppTheme_Splash);
 
-        // isNetworkAvailable();
+
 
         /*
          * Creation de la chaine pour les notifications

@@ -77,8 +77,10 @@ public class ResultsActivity extends BaseParseActivity implements AdapterView.On
         };
     }
 
-    @Override
-    protected void onResume() {
+    // @Override
+    /* Liste des Formats dans un Spinner */
+    /*
+    protected void oonResume() {
         super.onResume();
 
         // Le passage par un set dedoublonne
@@ -103,6 +105,7 @@ public class ResultsActivity extends BaseParseActivity implements AdapterView.On
 
         cbo.setAdapter(adapter);
     }
+    */
 
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int pos, long id) {

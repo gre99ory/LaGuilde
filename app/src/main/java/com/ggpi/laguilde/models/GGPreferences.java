@@ -11,6 +11,8 @@ public class GGPreferences {
     private static final GGPreferences ourInstance = new GGPreferences();
 
     private String uniqueID = null;
+    private String pseudo   = null;
+    private String DCI      = null;
 
     private boolean showMagic = true;
     private boolean showPokemon = true;
@@ -22,6 +24,8 @@ public class GGPreferences {
     private boolean onBoardingDone = false;
 
     private static final String PREF_UNIQUE_ID = "PREFS_LAGUILDE";
+    private static final String PREF_PSEUDO = "PREFS_PSEUDO";
+    private static final String PREF_DCI = "PREFS_DCI";
     private static final String PREF_CHECK_VERSION = "CHECK_VERSION";
     private static final String PREF_TOOLTIPS = "SHOW_TOOLTIPS";
     private static final String PREF_MAGIC = "SHOW_MAGIC";
@@ -73,6 +77,9 @@ public class GGPreferences {
 
         editor.putBoolean(PREF_ONBOARDING,onBoardingDone);
 
+        editor.putString(PREF_PSEUDO,pseudo);
+        editor.putString(PREF_DCI, DCI);
+
         /*
         editor.putBoolean("swMagic",swMagic.isChecked());
         editor.putBoolean("swPokemon",swPokemon.isChecked());
@@ -94,6 +101,9 @@ public class GGPreferences {
         checkVersion = prefs.getBoolean(PREF_CHECK_VERSION,true);
 
         onBoardingDone = prefs.getBoolean(PREF_ONBOARDING,false);
+
+        pseudo = prefs.getString(PREF_PSEUDO,null);
+        DCI = prefs.getString(PREF_DCI,null);
     }
 
     static public boolean isRegistered( String eventId ) {
@@ -149,4 +159,10 @@ public class GGPreferences {
 
     static public boolean onBoardingDone() { return getInstance().onBoardingDone; }
     static public void setOnBoardingDone(boolean b) { getInstance().onBoardingDone = b; }
+
+    static public String pseudo() { return getInstance().pseudo; }
+    static public void setPseudo(String pseudo) { getInstance().pseudo = pseudo; }
+
+    static public String DCI() { return getInstance().DCI; }
+    static public void setDCI(String dci) { getInstance().DCI = dci; }
 }

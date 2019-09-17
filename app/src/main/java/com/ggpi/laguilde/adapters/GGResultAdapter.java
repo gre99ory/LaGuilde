@@ -68,7 +68,14 @@ public class GGResultAdapter extends GGEventBaseAdapter<GGResultAdapter.ResultVi
             }
             */
 
-            tvFormat.setText(ggEvent.getFormatName());
+            // Si pas de format, on a un '-' a la place
+            // Dans ce cas, on affiche le nom du jeu
+            if (ggEvent.getFormatName().length()> 1 ) {
+                tvFormat.setText(ggEvent.getFormatName());
+            }
+            else {
+                tvFormat.setText(ggEvent.getGameName());
+            }
 
             tvDate.setText(AndyUtils.capitalize(ggEvent.getDateText()));
             tvWinner.setText(ggEvent.getWinnerName());

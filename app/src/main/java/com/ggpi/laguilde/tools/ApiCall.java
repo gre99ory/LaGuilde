@@ -1,10 +1,14 @@
 package com.ggpi.laguilde.tools;
 
+import android.app.Application;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.widget.Toast;
 
+import com.example.ggpi.laguilde.R;
 import com.ggpi.laguilde.activities.SplashActivity;
+import com.ggpi.laguilde.models.GGGlobals;
+import com.ggpi.laguilde.models.GGPreferences;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -39,6 +43,11 @@ public class ApiCall extends AsyncTask<Void, Void, String> {
         this.methodCode = methodCode;
         this.context = context;
 
+        if ( !AndyUtils.isNetworkAvailable(context) ) {
+            Toast.makeText(context,R.string.err_no_network, Toast.LENGTH_LONG).show();
+            cancel(true);
+        }
+
     }
 
     protected ApiCall() {
@@ -50,7 +59,7 @@ public class ApiCall extends AsyncTask<Void, Void, String> {
     protected void onPreExecute() {
         super.onPreExecute();
         AndyUtils.showSimpleProgressDialog(context);
-        AndyUtils.doSleep(1000);
+        //AndyUtils.doSleep(1000);
     }
 
 
@@ -74,9 +83,19 @@ public class ApiCall extends AsyncTask<Void, Void, String> {
         }
     }
 
+    @Override
+    protected void onCancelled() {
+        super.onCancelled();
+        AndyUtils.removeSimpleProgressDialog();
+    }
+
     //the network operation will be performed in background
     @Override
     protected String doInBackground(Void... voids) {
+        if ( isCancelled() ) {
+            return null;
+        }
+
         RequestHandler requestHandler = new RequestHandler();
 
         if (methodCode == METHOD_POST)

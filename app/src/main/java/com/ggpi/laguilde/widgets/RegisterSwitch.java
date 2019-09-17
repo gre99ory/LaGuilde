@@ -22,16 +22,16 @@ import com.tooltip.Tooltip;
 
 import java.util.HashMap;
 
-public class MySwitch extends SwitchCompat implements View.OnClickListener {
+public class RegisterSwitch extends SwitchCompat implements View.OnClickListener {
 
     private GGEventModel event;
     // private String eventId;
 
-    public MySwitch(Context context) {
+    public RegisterSwitch(Context context) {
         super(context);
     }
 
-    public MySwitch(Context context, @Nullable AttributeSet attrs) {
+    public RegisterSwitch(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
 
         setOnClickListener( this );
@@ -61,6 +61,7 @@ public class MySwitch extends SwitchCompat implements View.OnClickListener {
         HashMap<String, String> params = new HashMap<>();
         params.put("uuid", GGGlobals.getUUID() );
         params.put("id_event", this.event.getId() );
+        params.put("pseudo", GGPreferences.pseudo() );
 
         MyCall request = new MyCall(
                     isChecked() ? GGConstants.Api.URL_ADD_REG : GGConstants.Api.URL_DEL_REG,

@@ -10,7 +10,10 @@ and main menu to go to other activities:
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
 import android.view.WindowManager;
+import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.ggpi.laguilde.R;
 import com.ggpi.laguilde.models.GGPreferences;
@@ -22,6 +25,7 @@ public class HomeActivity extends GuildeMenuBaseActivity {
 
 
     //Todo: add a refresh button to reload events
+    // Button refresh;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,25 +44,12 @@ public class HomeActivity extends GuildeMenuBaseActivity {
                 WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
 
         /*
-         * Verification de la version
-         * Si possible le laisser dans Splash
-         */
-        if ( GGPreferences.checkVersion() ) {
-            new VersionChecker(this);
-        }
-        //AndyUtils.doSleep(2000);
-        new EventsLoader(this);
-
-        /*
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
-                WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
-
-        When you are done you can undo this by clearing the flag:
-
-        getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
+        refresh = findViewById(R.id.fab);
+        refresh.setOnClickListener(onClickListener);
         */
+
+        loadEvents(null);
 
         getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
     }
-
 }

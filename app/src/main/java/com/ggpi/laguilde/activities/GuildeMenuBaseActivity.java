@@ -3,14 +3,20 @@ package com.ggpi.laguilde.activities;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.ggpi.laguilde.R;
 import com.ggpi.laguilde.models.GGPreferences;
+import com.ggpi.laguilde.tools.AndyUtils;
+import com.ggpi.laguilde.tools.EventsLoader;
+import com.ggpi.laguilde.tools.VersionChecker;
 import com.tooltip.Tooltip;
 
 public abstract class GuildeMenuBaseActivity extends AppCompatActivity {
@@ -112,4 +118,29 @@ public abstract class GuildeMenuBaseActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+
+    /* Parametre necessaire pour layout:onClick */
+    public void loadEvents(View view) {
+        //
+        // if ( AndyUtils.isNetworkAvailable(this) ) {
+            /*
+             * Verification de la version
+             * Si possible le laisser dans Splash
+             */
+            if (GGPreferences.checkVersion()) {
+                new VersionChecker(this);
+            }
+
+            new EventsLoader(this);
+
+            // FloatingActionButton fab = findViewById(R.id.fab);
+            // fab.setVisibility(View.GONE);
+        /*
+
+         }
+        else {
+            Toast.makeText(this,R.string.err_no_network, Toast.LENGTH_LONG).show();
+        }
+        */
+    }
 }

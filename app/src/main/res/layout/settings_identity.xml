@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tvPseudo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginLeft="32dp"
+        android:text="@string/pseudo" />
+
+    <EditText
+        android:id="@+id/editPseudo"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginLeft="48dp"
+        android:layout_marginRight="48dp"
+        android:ems="10"
+        android:hint="@string/hint_pseudo"
+        android:inputType="textNoSuggestions|textPersonName" />
+
+    <TextView
+        android:id="@+id/tvDCI"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginLeft="32dp"
+        android:text="@string/dci" />
+
+    <EditText
+        android:id="@+id/editDCI"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginLeft="48dp"
+        android:layout_marginRight="48dp"
+        android:ems="10"
+        android:hint="@string/hint_dci"
+        android:inputType="number" />
+
+</LinearLayout>

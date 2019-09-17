@@ -27,7 +27,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/bg_list">
 
-        <com.ggpi.laguilde.widgets.MySwitch
+        <com.ggpi.laguilde.widgets.RegisterSwitch
             android:id="@+id/cbRegister"
             android:layout_width="48dp"
             android:layout_height="48dp"

@@ -17,6 +17,7 @@
 
 
     <!-- Erreurs -->
+    <string name="err_no_network">Pas de connexion internet !</string>
     <string name="err_no_data">Aucune donnée trouvée !</string>
 
     <!-- Divers -->
@@ -24,15 +25,26 @@
     <string name="cancel">Annuler</string>
     <string name="loading">Chargement...</string>
     <string name="credits">Crédits</string>
+    <string name="save">Enregistrer</string>
+    <string name="save_changes">Enregistrer les modifications</string>
 
     <!-- Settings -->
     <string name="current_version">Version actuelle</string>
     <string name="check_version_now">Vérifier la version</string>
+    <string name="filters">Filtres</string>
+    <string name="identity">Identité</string>
 
+    <string name="title_filters">Type d\'évènements à afficher</string>
     <string name="magic">Magic</string>
     <string name="pokemon">Pokémon</string>
     <string name="misc">Divers</string>
     <string name="all">Tout</string>
+
+    <string name="title_identity">Vos identifiants</string>
+    <string name="pseudo">Pseudo</string>
+    <string name="dci">Numéro de DCI </string>
+    <string name="hint_pseudo">Entrez un pseudo</string>
+    <string name="hint_dci">Entrez votre numéro de DCI</string>
 
     <string name="tooltips">Info-bulles</string>
     <string name="onboarding">Passer l\'introduction</string>

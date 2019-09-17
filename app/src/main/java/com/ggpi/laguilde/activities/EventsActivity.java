@@ -6,6 +6,7 @@ import android.support.v7.widget.Toolbar;
 import com.example.ggpi.laguilde.R;
 import com.ggpi.laguilde.adapters.GGEventAdapter;
 import com.ggpi.laguilde.models.GGEventModel;
+import com.ggpi.laguilde.models.GGGlobals;
 
 import java.util.Comparator;
 
@@ -28,14 +29,25 @@ public class EventsActivity extends BaseParseActivity {
                 return ggEventA.getStart().compareToIgnoreCase(ggEventB.getStart());
             }};
 
-        ggEventFilter = new Comparator<GGEventModel>() {
-            @Override
-            public int compare(GGEventModel ggEventA, GGEventModel unused) {
-                if (ggEventA.getWinnerName().length() <= 0 )
+        if (GGGlobals.getDebug()) {
+            ggEventFilter = new Comparator<GGEventModel>() {
+                @Override
+                public int compare(GGEventModel ggEventA, GGEventModel unused) {
                     return 1;
-                return 0;
-            }
-        };
+                }
+            };
+        }
+        else {
+            ggEventFilter = new Comparator<GGEventModel>() {
+                @Override
+                public int compare(GGEventModel ggEventA, GGEventModel unused) {
+                    // Evenement sans vainqueur => ne s'est pas encore deroule
+                    if (ggEventA.getWinnerName().length() <= 0)
+                        return 1;
+                    return 0;
+                }
+            };
+        }
 
         ggEventAdapter = new GGEventAdapter(this.getBaseContext());
     }

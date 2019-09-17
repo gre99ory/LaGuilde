@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <Switch
+        android:id="@+id/swMagic"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:text="@string/magic"
+        android:textOff="@android:string/no"
+        android:textOn="@android:string/yes"
+        android:theme="@style/greenSwitch" />
+
+    <Switch
+        android:id="@+id/swPokemon"
+        android:layout_marginLeft="32dp"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:text="@string/pokemon"
+        android:theme="@style/greenSwitch" />
+
+    <Switch
+        android:id="@+id/swMisc"
+        android:layout_marginLeft="32dp"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:text="@string/misc"
+        android:theme="@style/greenSwitch" />
+
+</LinearLayout>

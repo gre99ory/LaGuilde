@@ -31,28 +31,18 @@
             android:layout_height="wrap_content"
             android:text="@string/check_version_now" />
 
-        <Switch
-            android:id="@+id/swMagic"
+        <Button
+            android:id="@+id/btnFilter"
             android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:text="@string/magic"
-            android:textOff="@android:string/no"
-            android:textOn="@android:string/yes"
-            android:theme="@style/greenSwitch" />
+            android:layout_height="wrap_content"
+            android:text="@string/filters" />
 
-        <Switch
-            android:id="@+id/swPokemon"
+        <Button
+            android:id="@+id/btnIdentity"
             android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:text="@string/pokemon"
-            android:theme="@style/greenSwitch" />
+            android:layout_height="wrap_content"
+            android:text="@string/identity" />
 
-        <Switch
-            android:id="@+id/swMisc"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:text="@string/misc"
-            android:theme="@style/greenSwitch" />
 
         <Switch
             android:id="@+id/swTooltips"
@@ -76,10 +66,10 @@
             android:theme="@style/greenSwitch" />
 
         <Button
-            android:id="@+id/btnOk"
+            android:id="@+id/btnSave"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/ok" />
+            android:text="@string/save_changes" />
 
         <TextView
             android:id="@+id/tvUUID"
