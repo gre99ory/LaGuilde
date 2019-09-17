@@ -88,7 +88,6 @@ public class SettingsActivity extends GuildeMenuBaseActivity  implements View.On
                 showIdentityDialog();
             }
         });
-        btnIdentity.setVisibility(View.GONE);
 
         Button btnAbout = findViewById(R.id.btnAbout);
         btnAbout.setOnClickListener(new View.OnClickListener() {
