@@ -53,6 +53,8 @@ public abstract class GuildeMenuBaseActivity extends AppCompatActivity {
              //   mItem = menu.findItem(R.id.action_settings);
              //   mText = "Préférences";
                 break;
+            //case "MagicActivity":
+            //    menu.findItem(R.id.action_magic).setVisible(false);
             case "SettingsActivity" :
                 menu.findItem(R.id.action_settings).setVisible(false);
                 break;
@@ -107,6 +109,14 @@ public abstract class GuildeMenuBaseActivity extends AppCompatActivity {
             startActivity(winnersIntent);
             return false;
         }
+        /*
+        if (id == R.id.action_magic) {
+            Intent magicIntent = new Intent(this, MagicActivity.class);
+            magicIntent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+            startActivity(magicIntent);
+            return false;
+        }
+        */
 
         if (id == R.id.action_settings) {
             Intent prefsIntent = new Intent(this, SettingsActivity.class);

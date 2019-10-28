@@ -1,5 +1,7 @@
 package com.ggpi.laguilde.tools;
 
+import android.util.Log;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.InputStreamReader;
@@ -57,6 +59,8 @@ public class RequestHandler {
             writer.close();
             os.close();
             int responseCode = conn.getResponseCode();
+
+            Log.v("RequestHandler","URL WAS :"+requestURL+"\nResponse is "+responseCode);
 
             if (responseCode == HttpsURLConnection.HTTP_OK) {
 

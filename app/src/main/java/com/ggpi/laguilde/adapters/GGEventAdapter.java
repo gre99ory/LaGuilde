@@ -111,7 +111,7 @@ public class GGEventAdapter extends GGEventBaseAdapter<GGEventAdapter.EventViewH
             }
 
             cbRegister.setEvent( ggEvent );
-            cbRegister.setChecked( GGPreferences.isRegistered( ggEvent.getId()) );
+            cbRegister.setCheckedExt( GGPreferences.isRegistered( ggEvent.getId()) );
 
 
             // http://bumptech.github.io/glide/

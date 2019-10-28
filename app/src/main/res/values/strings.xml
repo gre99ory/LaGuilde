@@ -55,6 +55,11 @@
 
     <string name="download">Télécharger</string>
 
+    <!-- Magic -->
+    <string name="life_points">Points à vie</string>
+    <string name="season_points">Points de la saison</string>
+
+
 
     <!-- Evenements -->
     <string name="click_to_register">Cliquer pour s\'inscrire</string>
