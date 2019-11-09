@@ -23,6 +23,15 @@
     <include layout="@layout/home_content" />
 
     <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fpb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|start"
+        android:layout_margin="@dimen/fab_margin"
+        android:onClick="showPromo"
+        app:srcCompat="@drawable/ic_action_promo" />
+
+    <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

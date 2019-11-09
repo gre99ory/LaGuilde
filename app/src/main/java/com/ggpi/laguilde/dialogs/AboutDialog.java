@@ -3,7 +3,6 @@ package com.ggpi.laguilde.dialogs;
 import android.app.Dialog;
 
 import android.app.Activity;
-import android.app.Dialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.view.View;
@@ -36,7 +35,7 @@ public class AboutDialog extends Dialog {
         ivIcon = (ImageView)findViewById(R.id.ivIcon);
         tvTitle = (TextView)findViewById(R.id.tvTitle);
         tvDescription = (TextView)findViewById(R.id.tvDescription);
-        ivGGPI = (ImageView)findViewById(R.id.ggpi_logo);
+        ivGGPI = (ImageView)findViewById(R.id.ivGameImage);
         btnOk = (Button)findViewById(R.id.btnOk);
 
         btnOk.setOnClickListener(new View.OnClickListener() {

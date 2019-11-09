@@ -36,6 +36,8 @@ public class GGConstants {
 
         public static final String URL_GET_EVENTS = ROOT_URL + "getevents";
 
+        public static final String URL_READ_PROMO = ROOT_URL + "daypromo";
+
 
     }
     /*

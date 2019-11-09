@@ -16,16 +16,31 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.ggpi.laguilde.R;
+import com.ggpi.laguilde.dialogs.AboutDialog;
+import com.ggpi.laguilde.dialogs.PromoDialog;
 import com.ggpi.laguilde.models.GGPreferences;
 import com.ggpi.laguilde.tools.AndyUtils;
 import com.ggpi.laguilde.tools.EventsLoader;
+import com.ggpi.laguilde.tools.PromoChecker;
 import com.ggpi.laguilde.tools.VersionChecker;
 
 public class HomeActivity extends GuildeMenuBaseActivity {
 
+    PromoChecker promoChecker = null;
 
-    //Todo: add a refresh button to reload events
-    // Button refresh;
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if ( promoChecker == null ) {
+            promoChecker = new PromoChecker(this, this);
+        }
+    }
+
+    /* Parametre necessaire pour layout:onClick */
+    public void showPromo(View view) {
+        //
+        new PromoChecker(this, this);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,4 +67,6 @@ public class HomeActivity extends GuildeMenuBaseActivity {
 
         getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
     }
+
+
 }
