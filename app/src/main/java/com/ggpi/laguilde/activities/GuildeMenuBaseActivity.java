@@ -16,6 +16,7 @@ import com.example.ggpi.laguilde.R;
 import com.ggpi.laguilde.models.GGPreferences;
 import com.ggpi.laguilde.tools.AndyUtils;
 import com.ggpi.laguilde.tools.EventsLoader;
+import com.ggpi.laguilde.tools.PromoChecker;
 import com.ggpi.laguilde.tools.VersionChecker;
 import com.tooltip.Tooltip;
 
