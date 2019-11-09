@@ -88,7 +88,6 @@ public class SettingsActivity extends GuildeMenuBaseActivity  implements View.On
                 showIdentityDialog();
             }
         });
-        btnIdentity.setVisibility(View.GONE);
 
         Button btnAbout = findViewById(R.id.btnAbout);
         btnAbout.setOnClickListener(new View.OnClickListener() {
@@ -231,6 +230,7 @@ public class SettingsActivity extends GuildeMenuBaseActivity  implements View.On
                     @Override
                     public void onClick(DialogInterface dialog, int id) {
                         // sign in the user ...
+                        prefsSave();
                     }
                 })
                 /*
@@ -275,13 +275,16 @@ public class SettingsActivity extends GuildeMenuBaseActivity  implements View.On
                     @Override
                     public void onClick(DialogInterface dialog, int id) {
                         // sign in the user ...
+                        prefsSave();
                     }
                 })
-                .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+                /*
+                setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         //LoginDialogFragment.this.getDialog().cancel();
                     }
-                });
+                })*/
+                ;
         identityDialog = builder.create();
     }
 }

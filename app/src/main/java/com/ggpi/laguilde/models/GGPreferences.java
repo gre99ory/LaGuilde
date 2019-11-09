@@ -102,8 +102,8 @@ public class GGPreferences {
 
         onBoardingDone = prefs.getBoolean(PREF_ONBOARDING,false);
 
-        pseudo = prefs.getString(PREF_PSEUDO,null);
-        DCI = prefs.getString(PREF_DCI,null);
+        pseudo = prefs.getString(PREF_PSEUDO,"");
+        DCI = prefs.getString(PREF_DCI,"");
     }
 
     static public boolean isRegistered( String eventId ) {

@@ -13,15 +13,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name="com.ggpi.laguilde.activities.MagicActivity"></activity>
         <activity
             android:name="com.ggpi.laguilde.activities.ResultsActivity"
             android:label="@string/results"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="com.ggpi.laguilde.activities.SplashActivity"
             android:theme="@style/AppTheme.Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -41,7 +43,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.ggpi.laguilde.activities.HomeActivity" />
         </activity>
-
         <activity
             android:name="com.ggpi.laguilde.activities.SettingsActivity"
             android:label="@string/settings"
@@ -51,6 +52,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.ggpi.laguilde.activities.HomeActivity" />
         </activity>
+
         <receiver android:name="com.ggpi.laguilde.tools.NotificationPublisher" />
     </application>
 

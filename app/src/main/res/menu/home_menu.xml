@@ -23,7 +23,14 @@
         android:title="@string/results"
         android:icon="@drawable/ic_action_winners"
         app:showAsAction="ifRoom" />
-
+<!--
+    <item
+        android:id="@+id/action_magic"
+        android:orderInCategory="350"
+        android:title="@string/magic"
+        android:icon="@drawable/ic_action_home"
+        app:showAsAction="ifRoom" />
+-->
     <item
         android:id="@+id/action_settings"
         android:orderInCategory="400"

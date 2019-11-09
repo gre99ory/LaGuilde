@@ -36,9 +36,9 @@ public class GGConstants {
 
         public static final String URL_GET_EVENTS = ROOT_URL + "getevents";
 
+        public static final String URL_MAGIC_GET_POINTS = "https://www.wizards.com/Magic/PlaneswalkerPoints/JavaScript/GetPointsSummary/";
+
         public static final String URL_READ_PROMO = ROOT_URL + "daypromo";
-
-
     }
     /*
     // webservice key constants
