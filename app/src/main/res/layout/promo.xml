@@ -3,48 +3,35 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_month">
 
-    <LinearLayout
-        android:id="@+id/llTop"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
-        app:layout_constraintTop_toTopOf="parent"
+    <TextView
+        android:id="@+id/tvTitle"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <ImageView
-            android:id="@+id/ivIcon"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
-            android:contentDescription="app_logo"
-            app:srcCompat="@drawable/ggpi_logo" />
-
-        <TextView
-            android:id="@+id/tvTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Default Title"
-            android:textSize="25sp"/>
-
-    </LinearLayout>
+        android:layout_height="wrap_content"
+        android:text="Promotion du jour"
+        android:textAlignment="center"
+        android:textSize="25sp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tvDescription"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/app_descrip"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="24dp"
+        android:text="Aujourd'hui profitez de 20% de réduction sur:"
         android:textAlignment="center"
         android:textColor="?android:attr/textColorPrimary"
         android:textSize="16sp"
-        android:layout_marginTop="28dp"
-        app:layout_constraintTop_toBottomOf="@id/llTop" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvTitle" />
+
 
     <TextView
         android:id="@+id/tvGameName"
@@ -55,32 +42,42 @@
         android:layout_marginEnd="8dp"
         android:autoLink="web"
         android:paddingTop="20dip"
-        android:text="@string/app_credits"
+        android:text="gameName"
         android:textAlignment="center"
         android:textColor="?android:attr/textColorPrimary"
-        android:textSize="16sp"
+        android:textSize="28sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvDescription" />
 
-    <LinearLayout
-        android:id="@+id/llLogo"
-        android:layout_width="120dp"
-        android:layout_height="45dp"
+    <ImageView
+        android:id="@+id/ivGameImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="gameImage"
         android:background="@drawable/bg_list"
         android:gravity="center"
         android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvGameName">
+        app:layout_constraintTop_toBottomOf="@+id/tvGameName" />
 
-        <ImageView
-            android:id="@+id/ivGameImage"
-            android:layout_width="100dp"
-            android:layout_height="25dp"
-            android:contentDescription="ggpi_logo"
-            app:srcCompat="@drawable/ggpi_logo" />
-    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/tvRestriction"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="24dp"
+        android:text="Offre valable dans la limite des stocks disponibles"
+        android:textAlignment="center"
+        android:textColor="?android:attr/textColorPrimary"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ivGameImage" />
 
     <Button
         android:id="@+id/btnOk"
@@ -91,7 +88,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/llLogo"
         android:text="@string/ok"/>
 
 </android.support.constraint.ConstraintLayout>
