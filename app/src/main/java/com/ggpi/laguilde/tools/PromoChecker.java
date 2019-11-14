@@ -14,29 +14,49 @@ import com.ggpi.laguilde.models.GGPreferences;
 
 import org.json.JSONException;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
+import java.util.concurrent.ExecutionException;
 
 public class PromoChecker extends ApiCall {
 
     private String gameName;
     private String imageUrl;
     private String linkUrl;
+    private String date;
     private boolean forceDisplay;
     private Activity activity;
+
 
     public PromoChecker(final Activity activity,Context ctx) {
         super(GGConstants.Api.URL_READ_PROMO,null,METHOD_POST,ctx);
 
+        /*
         this.params = new HashMap<>();
-        this.params.put("jour", Integer.toString(19) );
+        this.params.put("jour", Integer.toString(22) );
         this.params.put("mois", Integer.toString(11) );
+        */
 
         this.activity = activity;
         this.forceDisplay = false;
 
-        gameName = "Not Yet";
+        executeAndGet();
+    }
 
-        execute();
+    public PromoChecker(final Activity activity,Context ctx, Integer day, Integer month) {
+        super(GGConstants.Api.URL_READ_PROMO,null,METHOD_POST,ctx);
+
+        this.params = new HashMap<>();
+        this.params.put("jour", Integer.toString(day) );
+        this.params.put("mois", Integer.toString(month) );
+
+        this.activity = activity;
+        this.forceDisplay = false;
+
+        executeAndGet();
     }
 
     public PromoChecker(final Activity activity,Context ctx, boolean forceDisplay) {
@@ -46,21 +66,39 @@ public class PromoChecker extends ApiCall {
 
         gameName = "Nope";
 
-        execute();
+        executeAndGet();
     }
+
+    private void executeAndGet() {
+        try {
+            execute();
+            get();
+        }
+        catch(InterruptedException e) {
+            return;
+        }
+        catch(ExecutionException e) {
+            return;
+        }
+    }
+
+    public boolean isPromo() {
+        return ( gameName != null && gameName.length() > 0 && gameName.compareTo("none") != 0 );
+    }
+
 
     @Override
     protected void onPostExecute(String s) {
         super.onPostExecute(s);
 
         if ( !this.wasOk ) {
-            gameName = "Not Ok";
-            showDialog();
             return;
         }
 
         try {
             gameName = object.getString("gameName");
+            date     = object.getString("date");
+            // Les deux premieres lignes sont OK meme si pas de promo sur ce jour
             imageUrl = object.getString("image");
             linkUrl  = object.getString("link");
         } catch (JSONException e) {
@@ -68,19 +106,24 @@ public class PromoChecker extends ApiCall {
             return;
         }
 
-        if ( gameName.length() > 0 && gameName.compareTo("none") != 0 ) {
+        if ( isPromo() ) {
             showDialog();
         }
+    }
+
+    public void setParams(HashMap params ) {
+        this.params = params;
     }
 
     /*
      * Nouvelle version disponible
      */
-    private void showDialog() {
+    public void showDialog() {
         PromoDialog promo = new PromoDialog(this.activity);
         promo.setGameName(gameName);
         promo.setImageUrl(imageUrl);
         promo.setLinkUrl(linkUrl);
+        promo.setDate(date);
 
         promo.build();
 /*

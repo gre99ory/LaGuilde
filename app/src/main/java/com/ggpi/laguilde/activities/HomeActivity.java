@@ -9,37 +9,61 @@ and main menu to go to other activities:
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.Button;
-import android.widget.Toast;
 
 import com.example.ggpi.laguilde.R;
-import com.ggpi.laguilde.dialogs.AboutDialog;
-import com.ggpi.laguilde.dialogs.PromoDialog;
+import com.ggpi.laguilde.models.GGGlobals;
 import com.ggpi.laguilde.models.GGPreferences;
-import com.ggpi.laguilde.tools.AndyUtils;
-import com.ggpi.laguilde.tools.EventsLoader;
 import com.ggpi.laguilde.tools.PromoChecker;
-import com.ggpi.laguilde.tools.VersionChecker;
+
+import java.util.Calendar;
 
 public class HomeActivity extends GuildeMenuBaseActivity {
 
     PromoChecker promoChecker = null;
+    FloatingActionButton btnPromo;
+    FloatingActionButton btnDebug;
+
+    private Calendar calendar;
 
     @Override
     protected void onResume() {
         super.onResume();
-        if ( promoChecker == null ) {
+        if (GGGlobals.getDebug()) {
+            btnDebug.show();
+        }
+        else {
+            btnDebug.hide();
+        }
+
+        if ( promoChecker == null || !isSameDay()) {
+            calendar = Calendar.getInstance();
             promoChecker = new PromoChecker(this, this);
+        }
+        // Attendre la fin de promoChecker //
+        if ( promoChecker.isPromo() ) {
+            btnPromo.show();
+        }
+        else {
+            btnPromo.hide();
         }
     }
 
     /* Parametre necessaire pour layout:onClick */
     public void showPromo(View view) {
-        //
-        new PromoChecker(this, this);
+        promoChecker.showDialog();
+    }
+
+    private boolean isSameDay() {
+        Calendar now = Calendar.getInstance();
+        if ( calendar == null ) return false;
+
+        return ( calendar.get(Calendar.DAY_OF_MONTH) == now.get(Calendar.DAY_OF_MONTH)
+                &&
+                calendar.get(Calendar.MONTH) == now.get(Calendar.MONTH) );
     }
 
     @Override
@@ -58,15 +82,23 @@ public class HomeActivity extends GuildeMenuBaseActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
                 WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
 
-        /*
-        refresh = findViewById(R.id.fab);
-        refresh.setOnClickListener(onClickListener);
-        */
+        btnPromo = findViewById(R.id.fpb);
+        btnDebug = findViewById(R.id.dbgHome);
+
 
         loadEvents(null);
 
         getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
     }
 
+
+    /* Parametre necessaire pour layout:onClick */
+    public void debugHome(View view) {
+
+        Integer day =  GGGlobals.getInstance().getDay();
+        GGGlobals.getInstance().setDay( day + 1 );
+
+        promoChecker = new PromoChecker(this, this, day,12);
+    }
 
 }

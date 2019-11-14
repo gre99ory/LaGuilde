@@ -4,6 +4,7 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 import static com.ggpi.laguilde.activities.SplashActivity.getAppContext;
 
@@ -14,6 +15,9 @@ public class GGGlobals {
     private String versionName;
 
     private ArrayList<GGEventModel> ggEvents;
+
+    private Integer debugDay;
+    private Integer debugMonth;
 
 
     /* This one should be the last */
@@ -35,6 +39,13 @@ public class GGGlobals {
         }
 
         uuid = GGPreferences.getUniqueID();
+
+        Calendar cal = Calendar.getInstance();
+        debugDay = cal.get(Calendar.DAY_OF_MONTH);
+        debugMonth = cal.get(Calendar.MONTH);
+
+        debugDay = 1;
+        debugMonth = 12;
     }
 
 
@@ -60,6 +71,22 @@ public class GGGlobals {
 
     public static void setEvents(ArrayList<GGEventModel> ggEvents) {
         getInstance().ggEvents = ggEvents;
+    }
+
+    public void setDay( Integer day ) {
+        debugDay = day;
+    }
+
+    public void setMonth( Integer month ) {
+        debugMonth = month;
+    }
+
+    public Integer getDay() {
+        return debugDay;
+    }
+
+    public Integer getMonth() {
+        return debugMonth;
     }
 
 }

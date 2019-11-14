@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.ggpi.laguilde.R;
+import com.ggpi.laguilde.models.GGGlobals;
 
 import static com.ggpi.laguilde.tools.GGConstants.Paths.URL_EVENT_IMG;
 
@@ -21,11 +22,13 @@ public class PromoDialog extends Dialog implements View.OnClickListener {
     private String gameName;
     private String imageUrl;
     private String linkUrl;
+    private String date;
     private Activity activity;
 
     private Button btnOk;
     private TextView tvGameName;
     private ImageView ivGameImage;
+    private TextView tvDate;
 
     public PromoDialog(final Activity activity) {
         super(activity);
@@ -40,11 +43,18 @@ public class PromoDialog extends Dialog implements View.OnClickListener {
 
         ivGameImage = (ImageView)findViewById(R.id.ivGameImage);
         tvGameName = (TextView)findViewById(R.id.tvGameName);
+        tvDate = findViewById(R.id.tvDate);
+        if (GGGlobals.getDebug() )
+            tvDate.setVisibility(View.VISIBLE);
+        else
+            tvDate.setVisibility(View.GONE);
 
+        tvDate.setVisibility(View.VISIBLE);
 
         height = (int)(height*0.30);
         ivGameImage.setMinimumHeight(height);
         ivGameImage.setMaxHeight(height);// getWindow().setLayout(width, height)
+
 
 
         //LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(width, 100);
@@ -73,9 +83,13 @@ public class PromoDialog extends Dialog implements View.OnClickListener {
         this.linkUrl = linkUrl;
     }
 
+    public void setDate( String date ) {
+        this.date = date;
+    }
 
     public void build() {
 
+        tvDate.setText(date);
         tvGameName.setText(gameName);
         Glide.with(activity).load(imageUrl).into(ivGameImage);
         show();
