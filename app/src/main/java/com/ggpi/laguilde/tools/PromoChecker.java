@@ -1,23 +1,12 @@
 package com.ggpi.laguilde.tools;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.net.Uri;
 
-import com.example.ggpi.laguilde.R;
 import com.ggpi.laguilde.dialogs.PromoDialog;
-import com.ggpi.laguilde.models.GGGlobals;
-import com.ggpi.laguilde.models.GGPreferences;
 
 import org.json.JSONException;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.concurrent.ExecutionException;
 
@@ -34,11 +23,11 @@ public class PromoChecker extends ApiCall {
     public PromoChecker(final Activity activity,Context ctx) {
         super(GGConstants.Api.URL_READ_PROMO,null,METHOD_POST,ctx);
 
-        /*
+
         this.params = new HashMap<>();
-        this.params.put("jour", Integer.toString(22) );
-        this.params.put("mois", Integer.toString(11) );
-        */
+        this.params.put("dummy", Integer.toString(22) );
+        // this.params.put("mois", Integer.toString(11) );
+
 
         this.activity = activity;
         this.forceDisplay = false;
