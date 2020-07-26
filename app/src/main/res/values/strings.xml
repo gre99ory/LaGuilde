@@ -59,6 +59,13 @@
     <string name="life_points">Points à vie</string>
     <string name="season_points">Points de la saison</string>
 
+    <!-- Accueil -->
+    <string name="confirm">Veuillez confirmer</string>
+
+    <string name="open_address">Ouvrir l\'adresse dans l\'application de cartographie</string>
+    <string name="open_phone">Appeler La Guilde</string>
+    <string name="open_contact">Envoyer un email à La Guilde</string>
+    <string name="open_website">Visiter le site de La Guilde</string>
 
 
     <!-- Evenements -->

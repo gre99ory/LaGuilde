@@ -3,29 +3,17 @@ package com.ggpi.laguilde.activities;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
 import android.widget.Spinner;
-import android.widget.Toast;
 
-import com.ggpi.laguilde.models.GGEventModel;
-import com.ggpi.laguilde.adapters.GGResultAdapter;
-import com.ggpi.laguilde.tools.ParseGGEventContent;
 import com.example.ggpi.laguilde.R;
+import com.ggpi.laguilde.adapters.GGResultAdapter;
+import com.ggpi.laguilde.models.GGEventModel;
 
-import java.io.File;
-import java.util.ArrayList;
-import java.util.Collections;
+import java.util.Calendar;
 import java.util.Comparator;
-import java.util.HashSet;
-import java.util.Set;
-import java.util.function.Function;
-import java.util.function.Predicate;
 
 public class ResultsActivity extends BaseParseActivity implements AdapterView.OnItemSelectedListener {
 
@@ -36,6 +24,11 @@ public class ResultsActivity extends BaseParseActivity implements AdapterView.On
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        //Date minDate = now - 365;
+        final Calendar minCalendar = Calendar.getInstance();
+        minCalendar.add(Calendar.YEAR, -1);
+        // minCalendar.add(Calendar.MONTH, -3);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.results_activity);
 
@@ -70,7 +63,8 @@ public class ResultsActivity extends BaseParseActivity implements AdapterView.On
         ggEventFilter = new Comparator<GGEventModel>() {
             @Override
             public int compare(GGEventModel ggEventA, GGEventModel unused) {
-                if (ggEventA.getWinnerName().length() > 0 )
+                if ( minCalendar.before(ggEventA.getCalendar()) &&
+                    (ggEventA.getWinnerName().length() > 0 ))
                     return 1;
                 return 0;
             }

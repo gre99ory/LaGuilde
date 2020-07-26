@@ -7,19 +7,21 @@ public class GGConstants {
     }
     // web service url constants
     public class ServiceType {
-        public static final String SRVURL = "http://laguilde-jeux.fr/media/events/";
+        public static final String SRVURL = Api.LAGUILDE_URL + "media/events/";
     }
     public int CHANNEL_ID = 1976;
 
 
     public class Paths {
-        public static final String URL_EVENT_IMG = "http://laguilde-jeux.fr/modules/gg_events/img/";
+        public static final String URL_EVENT_IMG = Api.LAGUILDE_URL + "modules/gg_events/img/";
     }
 
     public class Api {
 
+        public static final String LAGUILDE_URL = "http://laguilde-jeux.fr/";
+
         // private static final String ROOT_URL = "http://192.168.101.1/HeroApi/v1/Api.php?apicall=";
-        private static final String ROOT_URL = "http://laguilde-jeux.fr/ggPiApi/api/api.php?apicall=";
+        private static final String ROOT_URL = LAGUILDE_URL + "ggPiApi/api/api.php?apicall=";
 
         public static final String MARKET_URL = "market://details?id=com.ggpi.laguilde";
 

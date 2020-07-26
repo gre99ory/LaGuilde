@@ -8,6 +8,7 @@ import com.ggpi.laguilde.dialogs.PromoDialog;
 import org.json.JSONException;
 
 import java.util.HashMap;
+import java.util.concurrent.CancellationException;
 import java.util.concurrent.ExecutionException;
 
 public class PromoChecker extends ApiCall {
@@ -67,6 +68,9 @@ public class PromoChecker extends ApiCall {
             return;
         }
         catch(ExecutionException e) {
+            return;
+        }
+        catch(CancellationException e) {
             return;
         }
     }
